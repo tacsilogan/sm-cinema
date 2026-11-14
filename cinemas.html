@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2714%27 fill=%27%23164ACF%27/%3E%3Ctext x=%2732%27 y=%2742%27 text-anchor=%27middle%27 font-family=%27Arial,Helvetica,sans-serif%27 font-weight=%27800%27 font-size=%2728%27 fill=%27white%27%3ESM%3C/text%3E%3C/svg%3E">
+  <title>Cinemas – SM Cinema</title>
+  <script>try{var t=localStorage.getItem('sm.theme');if(t)document.documentElement.dataset.theme=JSON.parse(t)}catch(e){}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300..700,0..1,0&display=block" rel="stylesheet">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body class="bg-white">
+  <a class="visually-hidden" href="#main">Skip to content</a>
+  <header id="site-header"></header>
+
+  <main id="main" class="container page">
+    <nav class="crumbs" aria-label="Breadcrumb"><a class="backlink" href="index.html"><span class="ms">chevron_left</span>Back</a><a href="index.html">Home</a><span class="sep">›</span><span class="current">Cinemas</span></nav>
+    <div class="page-head"><div><h1>Find a cinema near you</h1><p class="lede">Pick a branch to see what’s showing, then tap a time to choose your seats.</p></div></div>
+
+    <div class="cinema-tools">
+      <div class="input-wrap"><span class="ms">search</span><input class="input" id="q" type="search" placeholder="Search by city or mall" aria-label="Search by city or mall"></div>
+      <button class="btn btn-secondary" id="useLocation"><span class="ms">my_location</span>Use my location</button>
+      <div class="filters" id="xpFilters" role="group" aria-label="Filter by experience">
+        <span class="lbl">Experience</span>
+        <button class="chip" data-f="All" aria-pressed="true"><span class="ms sm">check</span>All</button>
+        <button class="chip" data-f="IMAX" aria-pressed="false">IMAX</button>
+        <button class="chip" data-f="Director's Club" aria-pressed="false">Director's Club</button>
+        <button class="chip" data-f="ScreenX" aria-pressed="false">ScreenX</button>
+      </div>
+    </div>
+
+    <div class="layout-side cinemas-layout">
+      <div id="branches"></div>
+      <div id="panel"></div>
+    </div>
+  </main>
+
+  <!-- Location permission -->
+  <div class="modal" id="locationModal">
+    <div class="panel narrow">
+      <div class="icon-circle blue"><span class="ms">my_location</span></div>
+      <div class="m-title">Allow SM Cinema to use your location?</div>
+      <p class="m-sub">We use it only to sort branches by distance and pick the one nearest to you.</p>
+      <div class="m-actions"><button class="btn btn-secondary" id="denyLoc">Don’t allow</button><button class="btn btn-primary" id="allowLoc">Allow</button></div>
+    </div>
+  </div>
+
+  <!-- Cinema info -->
+  <div class="modal" id="cinemaInfo">
+    <div class="panel">
+      <button class="close" data-close aria-label="Close"><span class="ms">close</span></button>
+      <div class="map"><svg viewBox="0 0 520 200" preserveAspectRatio="none" aria-hidden="true"><rect width="520" height="200" fill="var(--blue-50)"/><path d="M0 120 C120 110 180 150 300 120 S460 90 520 110" stroke="#fff" stroke-width="14" fill="none"/><path d="M0 120 C120 110 180 150 300 120 S460 90 520 110" stroke="var(--line-strong)" stroke-width="2" fill="none"/><path d="M230 0 C240 60 250 120 236 200" stroke="#fff" stroke-width="12" fill="none"/><path d="M230 0 C240 60 250 120 236 200" stroke="var(--line-strong)" stroke-width="2" fill="none"/><rect x="60" y="30" width="90" height="50" rx="6" fill="var(--blue-100)"/><rect x="330" y="20" width="120" height="60" rx="6" fill="var(--blue-100)"/><rect x="340" y="140" width="80" height="40" rx="6" fill="var(--blue-100)"/><text x="18" y="112" font-size="11" font-family="Inter" fill="#646B80" class="ci-street"></text></svg><div class="pin"><span class="ms">location_on</span></div></div>
+      <div class="m-title mt-4 ci-name"></div>
+      <div class="row mt-2" style="color:var(--text-2)"><span class="ms sm">location_on</span><span class="ci-addr"></span></div>
+      <div class="row mt-1" style="color:var(--success);font-weight:600"><span class="ms sm">schedule</span><span class="ci-hours"></span></div>
+      <div class="row wrap mt-3 ci-tags"></div>
+      <div class="card tint tight mt-4"><b class="display">At this branch</b><ul class="mt-2 stack tight ci-amen" style="color:var(--text-2)"></ul></div>
+      <div class="m-actions"><button class="btn btn-secondary" id="saveCinema"><span class="ms">star</span>Save as my cinema</button><a class="btn btn-primary" href="#" onclick="return false"><span class="ms">near_me</span>Get directions</a></div>
+    </div>
+  </div>
+
+  <footer id="site-footer"></footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/ui.js"></script>
+  <script>SMUI.init({ active: 'cinemas' });</script>
+  <script src="js/cinemas.js"></script>
+</body>
+</html>

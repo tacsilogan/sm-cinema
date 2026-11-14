@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2714%27 fill=%27%23164ACF%27/%3E%3Ctext x=%2732%27 y=%2742%27 text-anchor=%27middle%27 font-family=%27Arial,Helvetica,sans-serif%27 font-weight=%27800%27 font-size=%2728%27 fill=%27white%27%3ESM%3C/text%3E%3C/svg%3E">
+  <title>Review guide – SM Cinema redesign mockup</title>
+  <script>try{var t=localStorage.getItem('sm.theme');if(t)document.documentElement.dataset.theme=JSON.parse(t)}catch(e){}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300..700,0..1,0&display=block" rel="stylesheet">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <style>
+    .swatches { display: flex; flex-wrap: wrap; gap: 10px; }
+    .sw { width: 112px; border-radius: 12px; border: 1px solid var(--line); overflow: hidden; background: var(--surface); font-size: 12px; }
+    .sw i { display: block; height: 56px; }
+    .sw span { display: block; padding: 8px 10px; }
+    .sw b { display: block; font-family: var(--font-display); }
+    .type-sample { display: grid; gap: 6px; }
+    .q { display: grid; grid-template-columns: 36px 1fr; gap: var(--sp-3); padding: var(--sp-4); border-radius: var(--radius-lg); background: var(--yellow-100); }
+    .q .n { width: 36px; height: 36px; border-radius: 10px; background: var(--yellow-500); color: var(--ink-900); display: grid; place-items: center; font: 800 15px var(--font-display); }
+    .q b { font-family: var(--font-display); display: block; margin-bottom: 4px; }
+    .q p { color: var(--text-2); }
+  </style>
+</head>
+<body>
+  <a class="visually-hidden" href="#main">Skip to content</a>
+  <header id="site-header"></header>
+
+  <main id="main">
+    <section class="review-hero">
+      <div class="container">
+        <span class="eyebrow" style="color:var(--yellow-500)">Mockup for review · not the final build yet</span>
+        <h1 class="mt-2">What changed in the SM Cinema redesign, and why</h1>
+        <p>This is a clickable mockup of your approved Figma design with the improvements applied. Everything is HTML, CSS and vanilla JavaScript with sample data, so what you see here is what the final build will look like. Click through the flows, then tell me what to keep, change or add before I build the rest of the interactions.</p>
+        <div class="row wrap mt-5" style="gap:12px"><a class="btn btn-accent" href="index.html"><span class="ms">play_arrow</span>Start at the home page</a><a class="btn btn-ghost" href="#screens">Jump to the screen list</a></div>
+      </div>
+    </section>
+
+    <section class="container section" id="screens">
+      <div class="section-head"><div><span class="eyebrow blue">Screens</span><h2>Open each screen and try the flow</h2><p>Suggested path: Home → a movie → pick a showtime → seats → payment → pay → e-ticket.</p></div></div>
+      <div class="screen-list">
+        <a class="screen-card" href="index.html"><b>Home</b><small>New header, cinematic hero, quick-book bar, format filters, Now showing / Coming soon tabs, experience teaser, promos, footer.</small><span class="link sm">Try: change the cinema with the selector above the grid, filter by IMAX, use the quick-book bar.</span></a>
+        <a class="screen-card" href="movie.html?id=two-valid-ids"><b>Movie details</b><small>Backdrop hero, chips, synopsis and facts, trailer and photo gallery with lightbox, booking rail with real prices.</small><span class="link sm">Try: pick a date and time, “Change” the cinema, open “Cinema info and map”, open a photo.</span></a>
+        <a class="screen-card" href="seats.html"><b>Seats</b><small>Generated seat map with taken, selected and wheelchair seats, quantity stepper, “Pick best seats”, senior/PWD pricing.</small><span class="link sm">Try: tap seats, change the quantity, “Change showtime” and update to 9:00 PM.</span></a>
+        <a class="screen-card" href="payment.html"><b>Payment</b><small>Live 10-minute hold timer, validated contact fields, GCash / Maya / card, the new “Use a reward” row, promo codes.</small><span class="link sm">Try: apply the reward, type SMTUESDAY, choose Card, press Pay without the checkbox.</span></a>
+        <a class="screen-card" href="tickets.html?confirmed=CMC2283746763"><b>Booking confirmed + e-ticket</b><small>Confirmation toast, e-ticket modal with QR and booking reference, receipt and payment details.</small><span class="link sm">Try: Download PDF, Add to calendar, then open Past bookings and a receipt.</span></a>
+        <a class="screen-card" href="cinemas.html"><b>Cinemas</b><small>Search, location permission dialog, nearest-first sorting, experience filters, branch schedule with showtimes, cinema info with map.</small><span class="link sm">Try: “Use my location” → Allow or Don’t allow, filter IMAX with SM City Bacolod selected.</span></a>
+        <a class="screen-card" href="experience.html"><b>Experience</b><small>Four format cards on one navy base, Event Screen inquiry form, comparison table.</small><span class="link sm">Try: “See IMAX showtimes” (it pre-filters Cinemas), “Send an inquiry”.</span></a>
+        <a class="screen-card" href="profile.html"><b>Profile</b><small>Your next movie, Cinema Points hero, personal info, settings with a working dark mode, activity, rewards, payment methods.</small><span class="link sm">Try: Dark mode, Edit profile with a wrong number, Change password, Redeem a reward, Sign out.</span></a>
+        <a class="screen-card" href="index.html" onclick="alert('Narrow your browser window to under 640px, or open this on your phone, to see the mobile layout with the bottom tab bar.');return false;"><b>Mobile layout</b><small>Every page reflows to a single column with the bottom tab bar from your mobile frames.</small><span class="link sm">Try: shrink the browser window below 640px.</span></a>
+      </div>
+    </section>
+
+    <section class="container section">
+      <div class="section-head"><div><span class="eyebrow blue">Changes</span><h2>The improvements, screen by screen</h2></div></div>
+      <div class="change-list">
+        <div class="change"><span class="ic"><span class="ms">web_asset</span></span><div><b>Header (every page)</b><p>The SMCINEMA wordmark kept exactly as in your Figma (bold SM, light CINEMA), “Movies” added as the first nav item, equal spacing, a yellow active bar instead of the faint cyan underline, and search, notifications and your avatar grouped on the right exactly as in your Figma (search expands into a field when clicked).</p><p class="was"><strong>Was:</strong> flat bar with a typed “SMCINEMA”, three nav items floating left of centre, icon-only search, generic user icon.</p></div></div>
+        <div class="change"><span class="ic"><span class="ms">palette</span></span><div><b>One design system</b><p>One blue (#164ACF) for everything transactional, yellow only for loyalty and attention, one neutral ramp, two typefaces (Plus Jakarta Sans for headings and buttons, Inter for body and numbers), one button system, one chip, one rating badge, one date chip, one showtime button and one card style. Dark mode is a token swap, so it works on every page.</p><p class="was"><strong>Was:</strong> five different blues, three typefaces that changed from page to page, four button radii, blurry raster MTRCB badges.</p></div></div>
+        <div class="change"><span class="ic"><span class="ms">movie</span></span><div><b>Home</b><p>The print-ad carousel became a native hero: the banner is a dimmed backdrop under site typography, with an eyebrow, title, meta chips, two calls to action, thumbnail slide controls and dots. A quick-book bar (movie → cinema → date → time) sits on the hero edge. The grid has format filters, hover “Get tickets” overlays, Coming soon placeholders, an Experience teaser, promos and a footer.</p><p class="was"><strong>Was:</strong> side-peek carousel cropped through faces, nine identical “Buy tickets” rectangles, no footer, no filters, no path to book from the top of the page.</p></div></div>
+        <div class="change"><span class="ic"><span class="ms">local_activity</span></span><div><b>Movie details</b><p>Blurred-poster backdrop band, readable chips, a proper gallery (trailer tile with play button, photos, “View all” scrim), facts list, and a booking rail with the real price per format (“2D · Cinema 4 · ₱350 per seat”), a compact 7-day strip and a selection summary. Cinema change and cinema info are modals, so you never leave the page.</p><p class="was"><strong>Was:</strong> “₱[price]” placeholder, “View all 12 photos” as blue text on a photo, date strip that scrolled off the card.</p></div></div>
+        <div class="change"><span class="ic"><span class="ms">event_seat</span></span><div><b>Seats</b><p>Seat tiles with hatched “taken” seats (not colour alone), a visible screen band, wheelchair spaces, a quantity stepper that limits picks, “Pick best seats” that finds a middle block, removable seat chips, senior/PWD discounts that recalculate the total, and the change-showtime modal with the clear-seats warning from your prototype.</p><p class="was"><strong>Was:</strong> black box where the poster should be, legend swatch that looked like a checkbox, hairline screen arc.</p></div></div>
+        <div class="change"><span class="ic"><span class="ms">payments</span></span><div><b>Payment</b><p>Full-width section headings, a hold timer that really counts down with a shrinking bar and expiry dialog, inline validation for email and the 09XX mobile format, consistent logo tiles for GCash, Maya and card, card fields that appear when needed, and the missing “Use a reward” row so the voucher flow from Profile finally connects to checkout. Terms must be ticked before paying.</p><p class="was"><strong>Was:</strong> headings wrapping in a narrow column, a static orange line that looked like progress, three unrelated chip colours, no way to use a reward.</p></div></div>
+        <div class="change"><span class="ic"><span class="ms">qr_code_2</span></span><div><b>Confirmation, e-ticket, receipts</b><p>The booking-confirmed toast and the e-ticket modal open together after payment, exactly as in your flow. Tickets are “stubs” with a perforated edge and barcode; the e-ticket has a brand band, a large QR with a quiet zone, the reference in tabular figures and a receipt accordion. Past bookings open a receipt with VAT, payment method and invoice number.</p></div></div>
+        <div class="change"><span class="ic"><span class="ms">location_on</span></span><div><b>Cinemas</b><p>Search that filters as you type, the location permission dialog with both outcomes (nearest-first with distances, or the “Location is off” notice), experience chips that explain why a branch is dimmed (“No IMAX”), a schedule panel with date strip, per-format prices and showtimes that jump straight to seats, a sold-out notice, and a stylised map in the cinema info modal with “Save as my cinema”.</p></div></div>
+        <div class="change"><span class="ic"><span class="ms">star</span></span><div><b>Experience</b><p>Cards share one navy base with a single coloured glow per format so they read as one family; each CTA pre-filters the Cinemas page; the Event Screen banner opens a working inquiry form; the comparison table uses the check/dash convention consistently.</p></div></div>
+        <div class="change"><span class="ic"><span class="ms">person</span></span><div><b>Profile</b><p>Your two profile variants merged: the “Your next movie” card and payment methods from the dashboard version, plus the points hero, settings and rewards from the main version. Every overlay works: edit profile (with the “Enter an 11-digit number…” validation), change password (live checklist), redeem (points math), reward voucher with QR, sign out, and a dark-mode toggle that changes the whole site.</p></div></div>
+        <div class="change"><span class="ic"><span class="ms">smartphone</span></span><div><b>Responsive and accessible</b><p>Below 640px the header slims down (the avatar is hidden because the bottom tab bar already has Profile, and the notification panel opens as a full-width sheet instead of spilling off the screen), the bottom tab bar from your mobile frames appears; rails stack under content, the booking card moves above the synopsis, the seat map scrolls sideways, modals become bottom sheets. Every control is keyboard reachable with a visible focus ring, labels have proper contrast (no 11px text), and motion respects “reduce motion”.</p></div></div>
+      </div>
+    </section>
+
+    <section class="container section">
+      <div class="grid cols-2">
+        <div class="card">
+          <h3>Kept from your approved design</h3>
+          <ul class="stack tight text-2">
+            <li class="row" style="align-items:flex-start;gap:8px"><span class="ms sm" style="color:var(--success)">check</span>Every page, flow and overlay in the prototype, including edge states (sold out, few seats left, location off, no IMAX, insufficient points).</li>
+            <li class="row" style="align-items:flex-start;gap:8px"><span class="ms sm" style="color:var(--success)">check</span>All your content: movies, branches, addresses, prices, points, rewards, receipts and the booking reference.</li>
+            <li class="row" style="align-items:flex-start;gap:8px"><span class="ms sm" style="color:var(--success)">check</span>The three-step booking stepper, the light blue-and-white look, the yellow Cinema Points bar, the mobile bottom tab bar.</li>
+            <li class="row" style="align-items:flex-start;gap:8px"><span class="ms sm" style="color:var(--success)">check</span>Your microcopy wherever it existed (“We’ll hold your seats for 10 minutes while you pay.”, “Pick another time…”).</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Design tokens used</h3>
+          <div class="swatches mt-3">
+            <div class="sw"><i style="background:#164ACF"></i><span><b>Blue 600</b>#164ACF</span></div>
+            <div class="sw"><i style="background:#0B1F4F"></i><span><b>Blue 900</b>#0B1F4F</span></div>
+            <div class="sw"><i style="background:#DCE6FB"></i><span><b>Blue 100</b>#DCE6FB</span></div>
+            <div class="sw"><i style="background:#FFC629"></i><span><b>Yellow</b>#FFC629</span></div>
+            <div class="sw"><i style="background:#0E1222"></i><span><b>Ink 900</b>#0E1222</span></div>
+            <div class="sw"><i style="background:#646B80"></i><span><b>Ink 500</b>#646B80</span></div>
+            <div class="sw"><i style="background:#0B7A3E"></i><span><b>Success</b>#0B7A3E</span></div>
+            <div class="sw"><i style="background:#B42318"></i><span><b>Danger</b>#B42318</span></div>
+          </div>
+          <div class="type-sample mt-4"><span class="display" style="font-size:28px;font-weight:800">Plus Jakarta Sans 800 · headings</span><span style="font-size:15px">Inter 400 · body text, forms and numbers 1,250 pts</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container section">
+      <div class="section-head"><div><span class="eyebrow blue">Your call</span><h2>Decisions I’d like your feedback on</h2></div></div>
+      <div class="stack">
+        <div class="q"><span class="n">1</span><div><b>Header style</b><p>I kept a solid SM-blue bar (refined) rather than a dark or two-tier header, because your approved design and the professor both saw blue. Say the word if you want to see a darker “cinematic” header instead.</p></div></div>
+        <div class="q"><span class="n">2</span><div><b>Hero images</b><p>The hero uses your three banner images dimmed under the site text. The Avengers banner has its own “Tickets now on sale” lettering baked in; if you can export textless key art from Figma, it will look even cleaner.</p></div></div>
+        <div class="q"><span class="n">3</span><div><b>Coming soon titles</b><p>Your Figma had no Coming soon content, so I added November 2026 releases (Godzilla Minus Zero, Wildwood, Look Back, Hexed) as text placeholders. Replace, remove, or send posters.</p></div></div>
+        <div class="q"><span class="n">4</span><div><b>Yellow only for rewards</b><p>Yellow now marks loyalty, promos and active states; “Download PDF” and the “See showtimes” buttons became blue so the most important action on each page is always blue. Tell me if you prefer the yellow buttons from your frames.</p></div></div>
+        <div class="q"><span class="n">5</span><div><b>Extras I added</b><p>Quick-book bar, promos row, experience teaser, “Add to calendar”, card fields, promo codes, reset-demo link. Any of these can go if you want the site closer to the Figma scope.</p></div></div>
+      </div>
+      <p class="helper mt-5">After your feedback I’ll apply the corrections and finish the build: remaining interactions, polishing, cross-browser checks and a final pass on the mobile layout.</p>
+    </section>
+  </main>
+
+  <footer id="site-footer"></footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/ui.js"></script>
+  <script>SMUI.init({ active: null });</script>
+</body>
+</html>

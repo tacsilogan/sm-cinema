@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2714%27 fill=%27%23164ACF%27/%3E%3Ctext x=%2732%27 y=%2742%27 text-anchor=%27middle%27 font-family=%27Arial,Helvetica,sans-serif%27 font-weight=%27800%27 font-size=%2728%27 fill=%27white%27%3ESM%3C/text%3E%3C/svg%3E">
+  <title>Payment – SM Cinema</title>
+  <script>try{var t=localStorage.getItem('sm.theme');if(t)document.documentElement.dataset.theme=JSON.parse(t)}catch(e){}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300..700,0..1,0&display=block" rel="stylesheet">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <style>@keyframes spin { to { transform: rotate(360deg); } }</style>
+</head>
+<body>
+  <a class="visually-hidden" href="#main">Skip to content</a>
+  <header id="site-header"></header>
+
+  <main id="main" class="container page">
+    <div class="row between wrap mb-4">
+      <a class="backlink" id="backSeats" href="seats.html"><span class="ms">chevron_left</span>Back to seats</a>
+      <div class="stepper compact" aria-label="Booking progress">
+        <div class="step done"><span class="n"><span class="ms xs">check</span></span><span class="lbl">Showtime</span></div>
+        <div class="step done"><span class="n"><span class="ms xs">check</span></span><span class="lbl">Seats</span></div>
+        <div class="step current"><span class="n">3</span><span class="lbl">Payment</span></div>
+      </div>
+    </div>
+
+    <div class="layout-rail">
+      <div>
+        <h1>Payment</h1>
+        <div class="notice warn timer mt-4" id="holdNotice" role="status"><span class="ms">timer</span><span>Your seats are held for <b class="tabular" id="holdTime">10:00</b>. Finish payment before time runs out.</span></div>
+
+        <section class="card pay-section mt-5">
+          <h2>Contact details</h2>
+          <div class="form-grid">
+            <div class="field"><label for="email">Email</label><input class="input" id="email" type="email" autocomplete="email" placeholder="you@example.com"><span class="helper msg" data-default="We’ll send your e-ticket here.">We’ll send your e-ticket here.</span></div>
+            <div class="field"><label for="mobile">Mobile number</label><input class="input" id="mobile" type="tel" inputmode="numeric" autocomplete="tel" placeholder="09XX XXX XXXX"><span class="helper msg" data-default="For your booking reference by text.">For your booking reference by text.</span></div>
+          </div>
+        </section>
+
+        <section class="card pay-section">
+          <h2>Payment method</h2>
+          <div class="stack">
+            <label class="radio-card"><input type="radio" name="method" value="GCash" checked><span><span class="t">GCash</span><span class="d">Approve the payment in your GCash app</span></span><span class="logo-tile gcash">GCash</span></label>
+            <label class="radio-card"><input type="radio" name="method" value="Maya"><span><span class="t">Maya</span><span class="d">Approve the payment in your Maya app</span></span><span class="logo-tile maya">maya</span></label>
+            <label class="radio-card"><input type="radio" name="method" value="Card"><span><span class="t">Credit or debit card</span><span class="d">Visa or Mastercard</span></span><span class="logo-tile card"><span class="ms sm">credit_card</span></span></label>
+          </div>
+          <div class="form-grid mt-4" id="cardFields" hidden>
+            <div class="field" style="grid-column:1/-1"><label for="cardNumber">Card number</label><div class="input-wrap"><span class="ms">credit_card</span><input class="input" id="cardNumber" inputmode="numeric" placeholder="1234 5678 9012 3456" autocomplete="cc-number"></div></div>
+            <div class="field"><label for="cardName">Name on card</label><input class="input" id="cardName" placeholder="Christopher Dela Cruz" autocomplete="cc-name"></div>
+            <div class="form-grid"><div class="field"><label for="cardExp">Expiry</label><input class="input" id="cardExp" placeholder="MM/YY" inputmode="numeric" autocomplete="cc-exp"></div><div class="field"><label for="cardCvv">CVV</label><input class="input" id="cardCvv" placeholder="123" inputmode="numeric" maxlength="4" autocomplete="cc-csc"></div></div>
+          </div>
+        </section>
+
+        <section class="card pay-section">
+          <h2>Rewards and promo code</h2>
+          <div class="reward-row" id="rewardRow"><span class="ms">redeem</span><span id="rewardText"><b>Use a reward: Free regular ticket</b><small>Voucher RWD-T7K4P2 · covers one regular ticket (₱350)</small></span><button class="btn btn-secondary btn-sm" id="applyReward">Apply</button></div>
+          <div class="field mt-4"><label for="promo">Promo code</label><div class="promo-row"><input class="input" id="promo" placeholder="ENTER CODE" autocomplete="off"><button class="btn btn-secondary" id="applyPromo">Apply</button></div><span class="helper msg" id="promoMsg">One code per booking. Try SMTUESDAY.</span></div>
+        </section>
+
+        <section class="card pay-section">
+          <label class="check"><input type="checkbox" id="terms"><span>I agree to the <a href="#" class="link underline">terms of sale</a> and understand that tickets can’t be refunded or changed after payment.</span></label>
+          <span class="helper error mt-2" id="termsMsg" hidden><span class="ms xs">error</span>Please agree to the terms of sale to continue.</span>
+        </section>
+      </div>
+
+      <aside class="rail">
+        <div class="card">
+          <div class="order-movie"><img id="sumPoster" alt=""><span><b id="sumTitle"></b><small id="sumMeta"></small></span></div>
+          <dl class="kv" id="sumKv"></dl>
+          <a class="link sm underline mt-3" id="changeSeats" href="seats.html" style="display:inline-flex">Change seats</a>
+          <div class="divider"></div>
+          <div id="lines"></div>
+          <div class="total-row"><span>Total</span><span class="tabular" id="total">₱700</span></div>
+          <button class="btn btn-primary btn-lg btn-block mt-4" id="payBtn">Pay ₱700</button>
+          <p class="helper center mt-3" id="payHint"></p>
+          <p class="helper center mt-2 row" style="justify-content:center;gap:4px"><span class="ms xs">lock</span>Secured by SM Cinema Pay · PCI DSS</p>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- Hold expired -->
+  <div class="modal" id="expiredModal">
+    <div class="panel narrow">
+      <div class="icon-circle red"><span class="ms">timer_off</span></div>
+      <div class="m-title">Your seat hold expired</div>
+      <p class="m-sub">We released seats F8 and F9 so other moviegoers can book them. You can pick seats again in a few seconds.</p>
+      <div class="m-actions"><a class="btn btn-primary" href="seats.html">Choose seats again</a></div>
+    </div>
+  </div>
+
+  <footer id="site-footer"></footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/ui.js"></script>
+  <script>SMUI.init({ active: 'movies' });</script>
+  <script src="js/payment.js"></script>
+</body>
+</html>
